@@ -1,0 +1,46 @@
+version: '3.4'
+
+services: 
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    volumes:
+      - ./public_html:/public_html
+      - ./conf.d:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - php
+    networks:
+      - backend
+    restart: on-failure
+
+  php:
+    image: php:7.4.11-fpm
+    container_name: php
+    volumes:
+      - ./public_html:/public_html
+    networks:
+      - backend
+    restart: on-failure
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    volumes:
+     - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ROOTPASS
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: USERPASS
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+    restart: on-failure
+
+networks:
+  backend:
+    name: nginx-php-mariadb
