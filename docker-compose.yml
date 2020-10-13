@@ -43,4 +43,5 @@ services:
 
 networks:
   backend:
-    name: nginx-php-mariadb
+    external:
+      name: nginx-php-mariadb
