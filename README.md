@@ -1,4 +1,5 @@
 # Docker nginx-php-mariadb
+docker network create -d bridge nginx-php-mariadb
 docker-compose up -d
 
 <pre>Open url: http://localhost</pre>
