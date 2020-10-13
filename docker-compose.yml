@@ -17,7 +17,7 @@ services:
     restart: on-failure
 
   php:
-    image: php:7.4.11-fpm-alpine3.12
+    image: php:7.4.11-ext-install-mysqli
     container_name: php
     build: ./php/ 
     volumes:
