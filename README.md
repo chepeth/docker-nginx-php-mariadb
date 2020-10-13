@@ -11,7 +11,6 @@ de83928e67a0        none                null                local
 
 chepeth@ubuntu:~$ docker-compose up -d
 
-<pre>
 chepeth@ubuntu:~$ docker-compose ps
  Name                Command               State                    Ports                  
 -------------------------------------------------------------------------------------------
@@ -20,7 +19,7 @@ nginx     /docker-entrypoint.sh ngin ...   Up      0.0.0.0:443->443/tcp, 0.0.0.0
 php       docker-php-entrypoint php-fpm    Up      9000/tcp
 </pre>
 
-<pre>Open url: http://localhost</pre>
+Open url: http://localhost
 
 # Adminer alternative to replace phpMyAdmin
 docker run -p 8080:8080 --network=nginx-php-mariadb adminer
