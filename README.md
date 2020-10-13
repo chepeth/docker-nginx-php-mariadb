@@ -17,15 +17,16 @@ chepeth@ubuntu:~$ docker-compose ps
 mariadb   docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp                  
 nginx     /docker-entrypoint.sh ngin ...   Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp
 php       docker-php-entrypoint php-fpm    Up      9000/tcp
-</pre>
 
 Open url: http://localhost
+</pre>
 
 # Adminer alternative to replace phpMyAdmin
-docker run -p 8080:8080 --network=nginx-php-mariadb adminer
-
-<pre>Open url: http://localhost:8080</pre>
 <pre>
+chepeth@ubuntu:~$ docker run -p 8080:8080 --network=nginx-php-mariadb adminer
+
+Open url: http://localhost:8080
+
 System: MySQL
 Server: mariadb
 Username: root
